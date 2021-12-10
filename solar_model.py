@@ -20,8 +20,8 @@ def calculate_force(body, space_objects):
         if body is not obj:
             r = ((body.x - obj.x)**2 + (body.y - obj.y)**2)**0.5
             r = max(r, body.R + obj.R)
-            body.Fx += gravitational_constant * obj.m * (body.x - obj.x)/ r**3
-            body.Fy += gravitational_constant * obj.m * (body.y - obj.y)/ r**3
+            body.Fx -= gravitational_constant * obj.m * body.m * (body.x - obj.x)/ r**3
+            body.Fy -= gravitational_constant * obj.m * body.m * (body.y - obj.y)/ r**3
 
 
 def move_space_object(body, dt):
